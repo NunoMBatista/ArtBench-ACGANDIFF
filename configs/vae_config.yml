@@ -1,0 +1,22 @@
+seed: 67
+model_type: vae
+epochs: 100
+batch_size: 128
+num_workers: 2
+lr: 0.0002
+latent_dim: 128
+base_channels: 64
+beta: 1.0
+use_subset: false
+subset_mode: csv
+subset_csv_path: provided/training_20_percent.csv
+subset_seed: 67
+kaggle_root: data
+eval_num_samples: 512
+eval_metrics_batch_size: 32
+device: cuda
+run_prefix: run_vae
+optimizer:
+  name: adam
+  betas: [0.9, 0.999]
+  weight_decay: 0.0

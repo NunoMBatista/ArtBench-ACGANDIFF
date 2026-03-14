@@ -214,5 +214,8 @@ __marimo__/
 .DS_Store
 *.rsrc
 
-# Evolutionary algorithms data
+# Datasets
 **/data/
+
+# Outputs
+**/outputs/
