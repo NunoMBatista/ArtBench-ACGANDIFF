@@ -121,6 +121,7 @@ class ArtBenchKaggleDataset(Dataset):
 			raise ValueError(f"Expected HxWx3 image, got {image.shape}")
 		image = torch.from_numpy(image).permute(2, 0, 1).contiguous()
 		image = image.float().div(255.0)
+		image = image.mul(2.0).sub(1.0)
 		return image, label
 
 

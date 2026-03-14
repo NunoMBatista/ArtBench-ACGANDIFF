@@ -48,7 +48,7 @@ class VAE(nn.Module):
             nn.BatchNorm2d(base_channels),
             nn.LeakyReLU(0.2, inplace=True),
             nn.ConvTranspose2d(base_channels, img_channels, kernel_size=4, stride=2, padding=1),
-            nn.Sigmoid(),
+            nn.Tanh(),
         )
 
 

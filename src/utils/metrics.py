@@ -25,6 +25,8 @@ def _to_torch_images(images: np.ndarray) -> torch.Tensor:
     # Ensure the tensor is float and normalized to [0, 1]
     if tensor.dtype != torch.float32:
         tensor = tensor.float()
+    if tensor.min() < 0.0:
+        tensor = tensor.add(1.0).div(2.0)
     if tensor.max() > 1.0:
         tensor = tensor / 255.0
     return tensor

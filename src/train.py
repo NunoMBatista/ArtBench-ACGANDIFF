@@ -156,6 +156,7 @@ def _save_sample_grid(model: VAE, device: torch.device, run_dir: str, num_sample
     model.eval()
     with torch.no_grad():
         samples = model.sample(num_samples, device=device).cpu()
+    samples = samples.add(1.0).div(2.0).clamp(0.0, 1.0)
     grid = make_grid(samples, nrow=8)
     save_image(grid, os.path.join(run_dir, "samples.png"))
 
